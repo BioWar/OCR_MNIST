@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+### Project Related ###
+Dataset/images/*
+Evaluation/*
+HTML_template/style.css
+Results/output/*
+ocr_mnist
+*.zip
+dataset_tools/metrics_OLD.py

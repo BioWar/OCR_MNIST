@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>My Webpage</title>
+    <!link rel="stylesheet" href="style.css">
+    <style> 
+            .styled-table {
+          border-collapse: collapse;
+          margin: 25px 0;
+          font-size: 0.9em;
+          font-family: sans-serif;
+          min-width: 400px;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+            .styled-table thead tr {
+          background-color: #009879;
+          color: #ffffff;
+          text-align: left;
+      }
+            .styled-table th,
+            .styled-table td {
+                padding: 12px 15px;
+            }
+            .styled-table tbody tr {
+                border-bottom: 1px solid #dddddd;
+            }
+
+            .styled-table tbody tr:nth-of-type(even) {
+                background-color: #f3f3f3;
+            }
+
+            .styled-table tbody tr:last-of-type {
+                border-bottom: 2px solid #009879;
+            }
+            .styled-table tbody tr.active-row {
+                font-weight: bold;
+                color: #009879;
+            }
+            @import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+            :root {
+              /* Base font size */
+              font-size: 16px;
+
+              /* Heading height variable*/
+              --heading-height: 30em;
+            }
+
+            body {
+              font-family: "Roboto", Arial, sans-serif;
+              min-height: 100vh;
+              /*background-color: #101010;*/
+            }
+
+            header {
+              /*position: fixed;*/
+              width: 100%;
+              /*height: var(--heading-height);*/
+            }
+
+            /* Create angled background with 'before' pseudo-element */
+            header::before {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 0;
+              bottom: 33em;
+              width: 100%;
+              height: calc(var(--heading-height) - 10em);
+              z-index: -1;
+              transform: skewY(-3.5deg);
+              background: 
+                linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.6)),
+                url(https://images.unsplash.com/photo-1495464101292-552d0b52fe41?auto=format&fit=crop&w=1350&q=80) no-repeat center,
+                linear-gradient(#4e4376, #2b5876);
+              background-size: cover;
+              border-bottom: .2em solid #fff;
+            }
+
+            h1 {
+              font-size: calc(2.8em + 2.6vw);
+              font-weight: 700;
+              letter-spacing: .01em;
+              padding: 10rem 0 0 4.5rem;
+              text-shadow: .022em .022em .022em #111;
+              color: #fff;
+            }
+
+            main {
+              padding: calc(var(--heading-height) - 19.5vw) 4em 0;
+            }
+
+            p {
+              font-size: calc(1em + .25vw);
+              font-weight: 40;
+              /*line-height: 2;*/
+              /*margin-bottom: 1.5em;*/
+              color: #00000;
+            }
+    </style>
+<body>
+  <header>
+    <h1> Prediction of model </h1>
+  </header>
+  <main>
+    <p> 
+  {% for line in train_stats %}
+    <p>{{ line.text }}</p>
+  {% endfor %}
+</p>
+<table class="styled-table">
+  <thead>
+    <tr>
+      <td>&nbsp;</td>
+      <td><b>Image</b></td>
+      <td><b>Ground Truth</b></td>
+      <td><b>Prediction</b></td>
+      <td><b>GT == Pred</b></td>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in items %}
+  <tr>
+    <td>{{ item.id }}</td>
+    <td><img src="{{ item.image }}" alt="" border="3" height="56" width="560" /></td>
+    <td>'{{ item.gt }}'</td>
+    <td>'{{ item.pred }}'</td>
+    <td>{{ item.correct }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</main>
+</body>
+</html>

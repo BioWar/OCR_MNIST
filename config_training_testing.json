@@ -1,0 +1,16 @@
+{
+	"train": false,
+	"epochs": 100,
+	"source": "mnist_hwr_3K",
+	"arch": "custom_arch_v8",
+	"batch_size": 16,
+	
+	"input_size_hight": 28,
+	"input_size_widht": 280,
+	"max_text_len": 16,
+	"charset_base": "0123456789 ",
+
+	"output_path": "F:\\SAMSUNG\\OCR_MNIST\\Results\\output",
+	"source_path": "F:\\SAMSUNG\\OCR_MNIST\\dataset.hdf5",
+	"template_path": "F:\\SAMSUNG\\OCR_MNIST\\HTML_template\\template.html.jinja2"
+}
